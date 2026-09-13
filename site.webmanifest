@@ -1,0 +1,12 @@
+{
+  "name": "Astroploy",
+  "short_name": "Astroploy",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#6a2fea",
+  "icons": [
+    { "src": "assets/logo-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/logo-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
