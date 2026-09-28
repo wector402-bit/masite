@@ -1,518 +1,479 @@
 <!doctype html>
-<html lang="fr" dir="ltr" class="no-js">
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astroploy | Pubs vidéo en motion design 3D pour marques beauté, livrées en 5 jours</title>
+<meta name="description" content="Astroploy crée des pubs vidéo en motion design 3D pour les marques e-commerce beauté et soin. À partir de vos photos produit, livrées en 5 jours, sans tournage.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:opsz,wght@14..32,300..700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+<style>
+html,body{overflow-x:clip}
+@media(max-width:640px){.giant{font-size:14vw!important;white-space:nowrap;margin-bottom:-6px!important;line-height:1}}
+:root{--ac:#8F7FEE;--ac2:#B9ADF7;--ac-soft:#F1EEFD;--ink:#0C0C0C;--txt:rgba(12,12,12,.82);--muted:#6A687A;--line:#ECEAF5;--dark:#0A0A0F}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.w{max-width:1200px;margin:0 auto;padding:0 24px}
+.cal{font-family:"Cal Sans","Inter",sans-serif;font-weight:400}
+/* ---------- NAV (floating pill) ---------- */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;width:min(1180px,calc(100% - 32px));
+ display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 22px;border-radius:22px;background:rgba(255,255,255,.86);
+ backdrop-filter:blur(16px);box-shadow:0 0 0 1px rgba(143,127,238,.25),0 10px 40px -8px rgba(143,127,238,.45)}
+.nav .l{display:flex;align-items:center;gap:34px}
+.nav .logo img{height:26px}
+.nav .links{display:flex;gap:26px;font-size:14px;font-weight:500}
+.nav .links a:hover{color:var(--ac)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:154px;padding:12px 22px;font-size:14px;font-weight:600;background:var(--ac);color:#fff;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 8px 24px -6px rgba(143,127,238,.7);transition:transform .2s,box-shadow .2s;position:relative}
+.pill:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 12px 30px -6px rgba(143,127,238,.9)}
+.pill.soft{background:rgba(143,127,238,.5)}
+.pill.dot:after{content:"";position:absolute;top:-2px;right:-2px;width:9px;height:9px;border-radius:50%;background:#35D07F;border:2px solid #fff}
+.pill.big{padding:16px 28px;font-size:16px}
+/* ---------- HERO ---------- */
+.hero{padding:150px 0 40px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:7px 14px;border-radius:99px;border:1px solid var(--line);box-shadow:0 2px 12px rgba(143,127,238,.18)}
+.badge i{width:7px;height:7px;border-radius:50%;background:#35D07F;display:inline-block}
+.hero h1{font-family:"Inter",sans-serif;font-weight:500;font-size:clamp(40px,6.2vw,80px);line-height:1.04;letter-spacing:-.06em;margin:26px auto 22px;max-width:980px}
+.grad{background:linear-gradient(90deg,#8F7FEE,#B9ADF7 60%,#8F7FEE);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:17px;line-height:1.6;max-width:620px;margin:0 auto}
+.hero .cta{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:34px;flex-wrap:wrap}
+.proof{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.proof .av{display:flex}
+.proof .av span{width:30px;height:30px;border-radius:50%;border:2px solid #fff;margin-left:-8px;background-size:cover;background-position:center;background-color:#f3f1fb}
+/* showcase frame */
+.frame{margin:70px auto 0;max-width:1100px;aspect-ratio:16/8.4;border-radius:28px;background:radial-gradient(120% 90% at 50% 0%,#2a2350 0%,#0b0a14 55%,#050508 100%);
+ position:relative;overflow:hidden;box-shadow:0 40px 100px -30px rgba(80,60,200,.55);border:1px solid rgba(143,127,238,.35)}
+.frame .glow{position:absolute;inset:auto 10% -40% 10%;height:70%;background:radial-gradient(closest-side,rgba(143,127,238,.55),transparent);filter:blur(20px)}
+.frame .floor{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(to top,rgba(143,127,238,.12),transparent)}
+.prod{position:absolute;bottom:14%;filter:drop-shadow(0 30px 30px rgba(0,0,0,.55));animation:float 6s ease-in-out infinite}
+.prod img{height:100%;width:auto;-webkit-mask-image:linear-gradient(to bottom,#000 88%,transparent);mask-image:linear-gradient(to bottom,#000 88%,transparent)}
+.prod .ref{position:absolute;top:100%;left:0;right:0;transform:scaleY(-1);opacity:.18;-webkit-mask-image:linear-gradient(to top,#000,transparent 55%);mask-image:linear-gradient(to top,#000,transparent 55%)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(calc(var(--r,0deg) * -1))}}
+.frame .title{position:absolute;top:9%;left:0;right:0;text-align:center;color:#fff}
+.frame .title b{font-family:"Cal Sans",sans-serif;font-weight:400;font-size:clamp(28px,4.5vw,58px);letter-spacing:-.02em;display:block}
+.frame .title .pill{margin-top:14px}
+.bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.9) 0 6%,rgba(255,255,255,.12) 18%,rgba(185,173,247,.08) 60%,rgba(255,255,255,.35) 96%,transparent 100%);
+ box-shadow:inset 0 0 20px rgba(185,173,247,.35);animation:rise linear infinite}
+@keyframes rise{from{transform:translateY(40px);opacity:0}15%{opacity:1}85%{opacity:1}to{transform:translateY(-420px);opacity:0}}
+/* logos marquee */
+.brands{margin-top:60px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent);mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
+.brands .track{display:flex;gap:70px;width:max-content;animation:mq 32s linear infinite;align-items:center}
+.brands span{font-family:"Plus Jakarta Sans",sans-serif;font-weight:700;font-size:22px;color:#b7b4c6;letter-spacing:-.01em;white-space:nowrap}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* statement */
+.statement{padding:150px 0 110px;text-align:center}
+.statement p{font-family:"Inter",sans-serif;font-weight:500;font-size:clamp(28px,3.8vw,48px);line-height:1.2;letter-spacing:-.04em;max-width:900px;margin:0 auto}
+.statement .wd{color:#d3d0dd;transition:color .35s}
+.statement .wd.on{color:var(--ink)}
+.statement .wd.on.acc{color:var(--ac)}
+/* giant section titles */
+.sec{padding:40px 0 110px;position:relative}
+.giant{font-family:"Cal Sans",sans-serif;font-weight:400;font-size:clamp(84px,14vw,204px);line-height:.9;letter-spacing:-.03em;text-align:center;
+ background:linear-gradient(180deg,#8F7FEE 0%,rgba(185,173,247,.55) 55%,rgba(255,255,255,0) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:-40px;position:relative;z-index:0;user-select:none}
+.sec .inner{position:relative;z-index:1}
+.sub-c{text-align:center;color:var(--muted);font-size:17px;max-width:620px;margin:0 auto 46px}
+/* portfolio */
+.pf{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card-v{border-radius:22px;overflow:hidden;background:#0b0a12;aspect-ratio:9/16;position:relative;box-shadow:0 20px 50px -25px rgba(80,60,200,.5)}
+.card-v video,.card-v img.poster{width:100%;height:100%;object-fit:cover}
+.card-v .meta{position:absolute;left:14px;right:14px;bottom:14px;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:14px}
+.card-v .meta b{font-family:"Plus Jakarta Sans",sans-serif}
+.card-v .meta span{background:rgba(255,255,255,.16);backdrop-filter:blur(8px);padding:5px 10px;border-radius:99px;font-size:12px}
+.card-v .soon{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(90% 70% at 50% 35%,#231d45,#0b0a12);}
+.card-v .soon img{height:58%;width:auto;filter:drop-shadow(0 25px 25px rgba(0,0,0,.6));animation:float 6s ease-in-out infinite}
+.center{text-align:center;margin-top:36px}
+/* method */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative;padding-top:60px}
+.steps svg{position:absolute;left:0;top:0;width:100%;height:120px;overflow:visible}
+.step{background:#fff;border-radius:24px;padding:26px;box-shadow:0 0 0 1px var(--line),0 20px 50px -20px rgba(143,127,238,.35);transform:rotate(var(--rot));transition:transform .4s}
+.step:hover{transform:rotate(0) translateY(-6px)}
+.step .num{font-family:"Cal Sans",sans-serif;font-size:56px;line-height:1;margin-bottom:14px}
+.mock{border-radius:16px;background:var(--ac-soft);padding:16px;margin-bottom:22px;min-height:150px;display:flex;flex-direction:column;gap:10px;font-size:13px}
+.mock .row{background:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 8px rgba(143,127,238,.12)}
+.mock .row i{width:8px;height:8px;border-radius:50%;background:var(--ac)}
+.mock .thumbs{display:flex;gap:8px}
+.mock .thumbs img{height:84px;width:auto;background:#fff;border-radius:10px;padding:6px}
+.step h3{font-family:"Plus Jakarta Sans",sans-serif;font-size:22px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px;line-height:1.55}
+/* benefits */
+.cmp{background:var(--ac-soft);border-radius:28px;padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:1000px;margin:0 auto}
+.cmp h4{text-align:center;font-family:"Plus Jakarta Sans",sans-serif;font-size:18px;padding:14px 0 18px}
+.cmp .c{border-radius:20px;padding:10px 26px 22px}
+.cmp .no{background:#fff;box-shadow:0 0 0 1px var(--line)}
+.cmp .yes{background:linear-gradient(180deg,#DCD5FB,#CFC6FA);box-shadow:0 0 0 1px rgba(143,127,238,.35)}
+.cmp .yes h4{color:var(--ac)}
+.cmp li{list-style:none;display:flex;gap:12px;padding:10px 0;font-size:15px;line-height:1.45}
+.cmp .no li:before{content:"×";color:#c0bccd;font-size:18px;line-height:1.1}
+.cmp .yes li:before{content:"✓";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac);color:#fff;font-size:12px;display:grid;place-items:center}
+/* engagements (instead of reviews) */
+.eng{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.eng .e{border-radius:22px;padding:26px;box-shadow:0 0 0 1px var(--line);background:#fff}
+.eng .e b{font-family:"Cal Sans",sans-serif;font-weight:400;font-size:44px;color:var(--ac);display:block;line-height:1}
+.eng .e p{color:var(--muted);font-size:15px;margin-top:10px;line-height:1.5}
+/* pricing configurator */
+.cfg{max-width:1060px;margin:0 auto;border-radius:28px;background:#fff;box-shadow:0 0 0 1px var(--line),0 30px 80px -30px rgba(143,127,238,.45);padding:34px;display:grid;grid-template-columns:1fr 330px;gap:34px}
+.cfg h3{font-size:23px;font-weight:600;letter-spacing:-.02em}
+.cfg .d{color:var(--muted);font-size:14.5px;margin-top:6px}
+.lab{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 12px;font-weight:600}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:var(--ac-soft);padding:6px;border-radius:16px}
+.seg button{border:0;background:transparent;border-radius:12px;padding:14px 10px;font:inherit;font-size:14.5px;color:#8a88a0;cursor:pointer;transition:all .25s}
+.seg button b{display:block;font-size:17px;color:inherit}
+.seg button.on{background:var(--ac);color:#fff;box-shadow:0 8px 20px -8px rgba(143,127,238,.9)}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.opt .t{font-size:16px;color:#8a88a0;transition:color .2s}
+.opt .s{font-size:13px;color:var(--muted);margin-top:3px}
+.opt .p{font-size:15px;color:var(--muted);white-space:nowrap}
+.sw{width:42px;height:24px;border-radius:99px;background:#e4e1ef;position:relative;flex-shrink:0;transition:background .25s}
+.sw:after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .25s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.opt.on .sw{background:var(--ac)}.opt.on .sw:after{transform:translateX(18px)}
+.opt.on .t{color:var(--ink)}
+.tag-pop{font-size:11px;font-weight:700;letter-spacing:.06em;background:var(--ac);color:#fff;border-radius:99px;padding:3px 8px;margin-left:8px;vertical-align:middle}
+.side{background:var(--ac-soft);border-radius:22px;padding:26px;display:flex;flex-direction:column}
+.side .inc li{list-style:none;font-size:14.5px;padding:7px 0;display:flex;gap:10px}
+.side .inc li:before{content:"✓";color:var(--ac);font-weight:700}
+.total{margin-top:auto;padding-top:22px;border-top:1px solid rgba(143,127,238,.25)}
+.total small{color:var(--muted);font-size:14px}
+.total b{display:block;font-size:40px;letter-spacing:-.03em;font-weight:600;margin:4px 0 16px}
+.total .pill{width:100%;justify-content:center}
+.pilot{max-width:1060px;margin:18px auto 0;border-radius:20px;border:1px dashed var(--ac);padding:20px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:15px}
+.pilot b{font-family:"Plus Jakarta Sans",sans-serif;font-size:17px}
+/* differences */
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1000px;margin:0 auto}
+.diff .c{border-radius:24px;padding:28px 30px}
+.diff h4{font-family:"Plus Jakarta Sans",sans-serif;font-size:20px;margin-bottom:16px;text-align:center}
+.diff .a{background:#fafafa;box-shadow:0 0 0 1px var(--line)}
+.diff .b{background:#fff;box-shadow:0 0 0 2px var(--ac),0 20px 50px -20px rgba(143,127,238,.5)}
+.diff .b h4{color:var(--ac)}
+.diff li{list-style:none;padding:11px 0;font-size:16.5px;border-top:1px solid var(--line);display:flex;gap:10px}
+.diff .a li:before{content:"–";color:#aaa}
+.diff .b li:before{content:"✦";color:var(--ac)}
+/* faq */
+.faqg{display:grid;grid-template-columns:1fr 360px;gap:30px;max-width:1080px;margin:0 auto}
+details{border-radius:18px;background:#fff;box-shadow:0 0 0 1px var(--line);margin-bottom:12px;padding:0 24px}
+summary{cursor:pointer;list-style:none;padding:22px 0;font-weight:600;font-size:16.5px;display:flex;justify-content:space-between;gap:16px}
+summary:after{content:"+";color:var(--ac);font-size:24px;line-height:1;transition:transform .3s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{color:var(--muted);font-size:15.5px;line-height:1.6;padding-bottom:22px}
+.ask{border-radius:24px;background:var(--dark);color:#fff;padding:30px;position:sticky;top:110px;align-self:start;overflow:hidden}
+.ask:before{content:"";position:absolute;inset:-40% -20% auto auto;width:260px;height:260px;background:radial-gradient(closest-side,rgba(143,127,238,.6),transparent)}
+.ask h3{font-family:"Cal Sans",sans-serif;font-weight:400;font-size:30px;line-height:1.1;margin-bottom:12px;position:relative}
+.ask p{color:#a8a5b8;font-size:15px;margin-bottom:22px;position:relative}
+/* contact */
+.contact{border-radius:32px;background:radial-gradient(120% 120% at 50% 0%,#2a2350,#0a0a0f 60%);color:#fff;padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;box-shadow:0 40px 100px -40px rgba(80,60,200,.7)}
+.contact h3{font-size:clamp(28px,3vw,40px);font-weight:500;letter-spacing:-.04em;line-height:1.1}
+.contact p{color:#b8b4cc;margin:16px 0 26px;font-size:16px;line-height:1.6}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:15px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;font:inherit;font-size:15.5px}
+input::placeholder,textarea::placeholder{color:#8f8ba3}
+select{width:100%;padding:15px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;font:inherit;font-size:15.5px;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#b8b4cc 50%),linear-gradient(135deg,#b8b4cc 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:invalid{color:#8f8ba3}select option{color:#0c0c0c}
+select:focus{outline:2px solid var(--ac);border-color:transparent}
+input:focus,textarea:focus{outline:2px solid var(--ac);border-color:transparent}
+form .pill{border:0;cursor:pointer;justify-content:center;font:inherit;font-weight:600;font-size:16px;padding:16px}
+.fine{font-size:12.5px;color:#8f8ba3}
+footer{background:var(--dark);color:#fff;margin-top:110px;padding:60px 0 40px}
+.fr{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:15px}
+.fr a{opacity:.8}.fr a:hover{opacity:1}
+.fl{display:flex;gap:26px;flex-wrap:wrap}
+.copy{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;opacity:.75}
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);filter:blur(6px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s}
+.rv.in{opacity:1;transform:none;filter:none}
+@media (max-width:980px){
+ .nav .links{display:none}
+ .pf,.steps,.eng{grid-template-columns:1fr 1fr}
+ .cfg,.faqg,.contact,.diff,.cmp{grid-template-columns:1fr}
+ .steps svg{display:none}.step{transform:none}
+ .contact{padding:36px 24px}
+ .ask{position:static}
+}
+@media (max-width:620px){
+ .pf,.steps,.eng{grid-template-columns:1fr}
+ .frame{aspect-ratio:4/5}
+ .hero{padding-top:130px}
+ .nav .pill.hide-m{display:none}
+}
 
-  <title>Astroploy — Agence de marketing digital &amp; psychologie du consommateur</title>
-  <meta name="description" content="Astroploy, agence de marketing digital : stratégie, branding, marketing et production de contenu fondés sur la psychologie du consommateur. Réservez votre appel stratégique offert.">
-  <meta name="keywords" content="agence marketing digital, marketing psychologie, community management, branding, publicité Facebook Instagram, création de contenu, stratégie digitale, Astroploy">
-  <meta name="author" content="Astroploy">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="https://astroploy.com/">
-
-  <meta name="theme-color" content="#000000">
-  <meta name="color-scheme" content="dark">
-  <meta name="format-detection" content="telephone=no">
-
-  <!-- Open Graph / réseaux sociaux -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Astroploy">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:url" content="https://astroploy.com/">
-  <meta property="og:title" content="Astroploy — Marketing &amp; psychologie du consommateur">
-  <meta property="og:description" content="Stratégie, branding, marketing et production de contenu fondés sur la psychologie du consommateur.">
-  <meta property="og:image" content="https://astroploy.com/assets/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://astroploy.com/assets/og-image.jpg">
-
-  <!-- Favicons (fichiers réellement présents dans assets/) -->
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo-180.png">
-  <link rel="manifest" href="site.webmanifest">
-
-  <!-- Police Saira (celle de la maquette vidéo) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@100..125,300..600&display=swap">
-
-  <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/boule.js"></script>
-  <script defer src="js/main.js"></script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["Organization", "ProfessionalService"],
-    "name": "Astroploy",
-    "url": "https://astroploy.com/",
-    "logo": "https://astroploy.com/assets/logo-512.png",
-    "image": "https://astroploy.com/assets/og-image.jpg",
-    "description": "Agence de marketing digital fondée sur la psychologie du consommateur : stratégie, branding, marketing et production de contenu.",
-    "email": "contact@astroploy.com",
-    "telephone": "+228 73 27 37 72",
-    "priceRange": "390 € – 1 990 €",
-    "sameAs": ["https://www.instagram.com/marketing__psychologie/"]
-  }
-  </script>
+/* ---- HERO calqué sur la référence ---- */
+.topbar{position:absolute;top:20px;left:clamp(16px,7.5vw,108px);z-index:50}
+.topbar img{height:44px;width:auto}
+.nav{opacity:0;pointer-events:none;transform:translate(-50%,-20px);transition:opacity .35s,transform .35s}
+.nav.show{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+.hero{padding:130px 0 40px}
+.hero .badge{background:#fff;font-family:"Inter",sans-serif;font-optical-sizing:auto;font-size:14px;color:#000;padding:9px 16px;border:1px solid #8F7FEE;
+ box-shadow:0 0 0 3px rgba(143,127,238,.12),0 4px 18px rgba(143,127,238,.35)}
+.hero .badge i{width:7px;height:7px;background:#1DB32E}
+.hero h1{font-family:"Inter","Inter Display",sans-serif;font-optical-sizing:auto;font-variation-settings:"opsz" 32;font-weight:500;color:#000;
+ font-size:clamp(40px,5.85vw,84px);line-height:1.15;letter-spacing:-.06em;margin:42px auto 34px;max-width:1000px}
+.hero h1 .grad{background:none;-webkit-background-clip:initial;background-clip:initial;color:#8F7FEE}
+.hero p{font-family:"Inter",sans-serif;font-optical-sizing:auto;color:#7A7A7A;font-size:16.5px;line-height:1.65;letter-spacing:-.01em;max-width:680px}
+.hero .cta{gap:26px;margin-top:40px}
+.hero .cta .pill.big{background:#9B8BF2;padding:16px 26px 16px 30px;font-size:17px;font-weight:500;letter-spacing:-.01em;gap:14px;
+ box-shadow:0 10px 26px -8px rgba(143,127,238,.75),inset 0 1px 0 rgba(255,255,255,.3)}
+.hero .cta .pill.big .ar{font-weight:300;font-size:20px;opacity:.9}
+.hero .proof{flex-direction:column;align-items:flex-start;gap:6px;font-size:12.5px;color:#7A7A7A}
+.hero .proof .av span{width:32px;height:32px;margin-left:-9px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.hero .proof .av span:first-child{margin-left:0}
+@media(max-width:640px){.hero .badge{font-size:11.5px;padding:7px 12px}.topbar img{height:34px}.hero{padding-top:100px}.hero h1{line-height:1.08}.hero .proof{align-items:center}}
+</style>
 </head>
 <body>
-  <a class="skip" href="#contenu">Aller au contenu</a>
 
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="arrow" viewBox="0 0 24 24">
-      <path d="M6 18 18 6M8.5 6H18v9.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
-    </symbol>
-  </svg>
+<!-- LOGO (haut de page) -->
+<a href="#" class="topbar"><img src="img/logo-black.png" alt="Astroploy"></a>
+<!-- NAV -->
+<nav class="nav">
+  <div class="l">
+    <a href="#" class="logo"><img src="img/logo-black.png" alt="Astroploy"></a>
+    <div class="links"><a href="#portfolio">Portfolio</a><a href="#methode">Méthode</a><a href="#offres">Tarifs</a><a href="#faq">FAQ</a></div>
+  </div>
+  <div style="display:flex;gap:10px">
+    <a href="mailto:contact@astroploy.com" class="pill soft hide-m">Nous écrire</a>
+    <a href="#contact" class="pill dot">Démarrer un projet</a>
+  </div>
+</nav>
 
-  <div class="cursor" aria-hidden="true"></div>
-  <canvas class="bubble" aria-hidden="true"></canvas>
-  <img class="orb-img" alt="" aria-hidden="true" hidden>
-
-  <!-- ============ EN-TÊTE ============ -->
-  <header class="nav" data-nav>
-    <a class="nav__logo" href="#accueil" aria-label="Astroploy — accueil">ASTROPLOY</a>
-    <nav class="nav__links" aria-label="Navigation principale">
-      <a href="#apropos">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#realisations">Exemples</a>
-      <a href="#tarifs">Tarifs</a>
-    </nav>
-    <a class="nav__cta" href="#rendez-vous">Contactez-nous <svg aria-hidden="true"><use href="#arrow"/></svg></a>
-    <button class="nav__burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu" data-burger>
-      <span></span><span></span>
-    </button>
-  </header>
-
-  <div class="menu" id="menu" data-menu hidden>
-    <nav aria-label="Menu mobile">
-      <a href="#apropos">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#realisations">Exemples</a>
-      <a href="#tarifs">Tarifs</a>
-      <a href="#rendez-vous">Rendez-vous</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="menu__foot">
-      <a href="mailto:contact@astroploy.com">contact@astroploy.com</a>
-      <a href="tel:+22873273772">+228 73 27 37 72</a>
-    </div>
+<!-- HERO -->
+<header class="hero"><div class="w">
+  <span class="badge"><i></i>Marques beauté & soin, vos produits méritent une vidéo à leur niveau.</span>
+  <h1>Votre pub vidéo en<br>motion design 3D<br><span class="grad">livrée en 5 jours</span></h1>
+  <p>On allie esthétique et impact pour rendre vos produits désirables.<br>Notre promesse : sublimer, convaincre et convertir vos prospects en 15 secondes.</p>
+  <div class="cta">
+    <a href="#contact" class="pill big">Démarrer mon projet <span class="ar">→</span></a>
+    <div class="proof"><div class="av"><span style="background-image:url(img/produits/nuria-ampoule.webp)"></span><span style="background-image:url(img/produits/aloe-gel.webp)"></span><span style="background-image:url(img/produits/aera-brosse.webp)"></span></div><span>3 places pilotes ouvertes</span></div>
   </div>
 
-  <main id="contenu">
+  <div class="frame rv" id="frame">
+    <div class="glow"></div><div class="floor"></div>
+    <div class="title"><b>Astroploy</b><a href="#portfolio" class="pill">Voir les réalisations →</a></div>
+    <div class="prod" style="left:6%;height:44%;--r:-3deg;animation-delay:-1s"><img src="img/produits/aloe-yeux.webp" alt=""></div>
+    <div class="prod" style="left:17%;height:52%;--r:2deg;animation-delay:-3s"><img src="img/produits/nuria-gouttes.webp" alt=""></div>
+    <div class="prod" style="left:29%;height:40%;--r:-2deg;animation-delay:-2s"><img src="img/produits/aera-brosse.webp" alt=""></div>
+    <div class="prod" style="left:44.5%;height:58%;--r:1deg;animation-delay:0s"><img src="img/produits/nuria-ampoule.webp" alt=""></div>
+    <div class="prod" style="left:58%;height:36%;--r:-2deg;animation-delay:-4s"><img src="img/produits/aera-etui.webp" alt=""></div>
+    <div class="prod" style="left:73%;height:50%;--r:3deg;animation-delay:-2.5s"><img src="img/produits/nuria-masque.webp" alt=""></div>
+    <div class="prod" style="left:86%;height:46%;--r:-1deg;animation-delay:-1.5s"><img src="img/produits/aloe-gel.webp" alt=""></div>
+  </div>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="accueil">
-      <div class="hero__stage">
-        <div class="hero__bubble-anchor" data-bubble-anchor="hero" aria-hidden="true"></div>
-        <p class="hero__kicker" data-load>Marketing &amp; psychologie</p>
-        <p class="hero__lead" data-load>Nous comprenons ce qui fait acheter vos clients, et nous en faisons votre croissance.</p>
-        <h1 class="hero__title">
-          <span class="visually-hidden">Astroploy, agence de marketing digital fondée sur la psychologie du consommateur — </span>
-          <span class="hero__line hero__line--1" data-split="load">BUSINESS</span>
-          <span class="hero__line hero__line--2" data-split="load">SUCCESS</span>
-        </h1>
-        <a class="round-btn round-btn--hero" href="#realisations" data-magnetic data-load>
-          <span>Exemples <svg aria-hidden="true"><use href="#arrow"/></svg></span>
-        </a>
-      </div>
-    </section>
+  <div class="brands"><div class="track" id="track">
+    <span>Sérums</span><span>Crèmes visage</span><span>Soins cheveux</span><span>Maquillage</span><span>Compléments beauté</span><span>Accessoires soin</span><span>Parfums</span><span>Masques</span>
+  </div></div>
+</div></header>
 
-    <!-- ============ À PROPOS + CHIFFRES ============ -->
-    <section class="about" id="apropos" aria-labelledby="about-title">
-      <div class="about__head">
-        <h2 class="h-text about__title" id="about-title" data-fill>Comprendre vos clients <br>avant de leur parler : <br>c'est notre méthode</h2>
-        <span class="tag">[ à propos ]</span>
-      </div>
+<!-- STATEMENT -->
+<section class="statement"><div class="w"><p id="stmt">Aujourd'hui, vos clientes ne lisent plus. Elles scrollent, s'arrêtent sur ce qui brille, puis achètent. Une pub en motion design 3D transforme votre produit en objet de désir.</p></div></section>
 
-      <div class="stats">
-        <div class="about__bubble-anchor" data-bubble-anchor="about" aria-hidden="true"></div>
-        <div class="stat stat--1" data-speed="-0.05">
-          <div class="stat__in"><strong data-count="4" data-suffix="">4</strong><span>expertises réunies dans une seule équipe</span></div>
-        </div>
-        <div class="stat stat--2" data-speed="0.04">
-          <div class="stat__in"><strong data-count="2" data-suffix="h">2h</strong><span>ouvrées maximum pour confirmer votre rendez-vous</span></div>
-        </div>
-        <div class="stat stat--3" data-speed="-0.02">
-          <div class="stat__in"><strong data-count="30" data-suffix="">30</strong><span>minutes d'appel stratégique offertes pour analyser votre situation</span></div>
-        </div>
-        <div class="stat stat--4 stat--fill" data-speed="0.06">
-          <div class="stat__in"><strong data-count="90" data-suffix="">90</strong><span>jours : la durée de notre plan d'action, avec des indicateurs suivis chaque mois</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SERVICES + MANIFESTE ============ -->
-    <section class="services" id="services" aria-labelledby="services-title">
-      <div class="services__grid">
-        <div class="services__aside">
-          <div class="services__stick">
-            <h2 class="h-text services__title" id="services-title" data-fill>Ce que nous <br>faisons pour <br>votre marque</h2>
-            <div class="services__bubble-anchor" data-bubble-anchor="services" aria-hidden="true"></div>
-          </div>
-        </div>
-        <ol class="services__list">
-          <li class="service">
-            <h3 class="service__name" data-fill="big">STRATÉGIE</h3>
-            <div class="service__row">
-              <p class="small-text" data-fill="small">Nous analysons votre marché, vos concurrents et surtout vos clients : leurs besoins, leurs freins, leurs raisons d'acheter. Vous repartez avec un plan d'action clair.</p>
-              <button class="round-btn round-btn--sm" type="button" data-pop data-magnetic data-acc aria-expanded="false" aria-controls="sv-1"><span>En savoir<br>plus</span><svg aria-hidden="true"><use href="#arrow"/></svg></button>
-            </div>
-            <div class="service__more" id="sv-1" hidden>
-              <ul><li>Audit marketing &amp; analyse concurrentielle</li><li>Persona et parcours client</li><li>Positionnement &amp; proposition de valeur</li><li>Plan d'action et KPI sur 90 jours</li></ul>
-            </div>
-          </li>
-          <li class="service">
-            <h3 class="service__name" data-fill="big">BRANDING</h3>
-            <div class="service__row">
-              <p class="small-text" data-fill="small">Nom, logo, couleurs, ton : nous construisons une marque qui inspire confiance au premier regard et qu'on retient.</p>
-              <button class="round-btn round-btn--sm" type="button" data-pop data-magnetic data-acc aria-expanded="false" aria-controls="sv-2"><span>En savoir<br>plus</span><svg aria-hidden="true"><use href="#arrow"/></svg></button>
-            </div>
-            <div class="service__more" id="sv-2" hidden>
-              <ul><li>Logo &amp; charte graphique</li><li>Naming et storytelling de marque</li><li>Templates réseaux sociaux</li><li>Supports print &amp; packaging</li></ul>
-            </div>
-          </li>
-          <li class="service">
-            <h3 class="service__name" data-fill="big">MARKETING</h3>
-            <div class="service__row">
-              <p class="small-text" data-fill="small">Réseaux sociaux, publicité, textes de vente : chaque message s'appuie sur les leviers psychologiques qui déclenchent l'achat.</p>
-              <button class="round-btn round-btn--sm" type="button" data-pop data-magnetic data-acc aria-expanded="false" aria-controls="sv-3"><span>En savoir<br>plus</span><svg aria-hidden="true"><use href="#arrow"/></svg></button>
-            </div>
-            <div class="service__more" id="sv-3" hidden>
-              <ul><li>Community management</li><li>Publicité Meta, TikTok &amp; Google Ads</li><li>Copywriting &amp; psychologie de vente</li><li>Tunnels de conversion et retargeting</li></ul>
-            </div>
-          </li>
-          <li class="service">
-            <h3 class="service__name" data-fill="big">PRODUCTION</h3>
-            <div class="service__row">
-              <p class="small-text" data-fill="small">Photos, vidéos, reels, sites : nous produisons les contenus qui arrêtent le scroll et donnent envie d'en savoir plus.</p>
-              <button class="round-btn round-btn--sm" type="button" data-pop data-magnetic data-acc aria-expanded="false" aria-controls="sv-4"><span>En savoir<br>plus</span><svg aria-hidden="true"><use href="#arrow"/></svg></button>
-            </div>
-            <div class="service__more" id="sv-4" hidden>
-              <ul><li>Shooting photo &amp; vidéo produit</li><li>Reels, TikTok et UGC</li><li>Motion design &amp; montage</li><li>Sites vitrines &amp; landing pages</li></ul>
-            </div>
-          </li>
-        </ol>
-        <div class="services__tagwrap"><span class="tag services__tag">[ services ]</span></div>
-      </div>
-
-      <div class="manifesto" id="realisations">
-        <span class="tag">[ exemples ]</span>
-        <p class="h-text manifesto__text" data-fill>Chaque projet part <br>d'une seule question : <br>qu'est-ce qui pousse <br>votre client à acheter ?</p>
-      </div>
-    </section>
-
-    <!-- ============ RÉALISATIONS ============
-         À PERSONNALISER : noms, textes, chiffres et photos de vos vrais projets.
-         Photos : déposez vos fichiers dans assets/realisations/ avec les noms indiqués
-         (ex. projet1-a.jpg). Tant qu'une photo manque, un visuel de remplacement s'affiche. -->
-    <section class="cases" aria-label="Exemples de missions">
-
-      <article class="case case--1">
-        <h3 class="case__name" data-fill="big">E-COMMERCE</h3>
-        <p class="small-text case__desc" data-fill="small">Exemple de mission : une boutique en ligne (mode, accessoires…) qui a des visiteurs mais pas assez de ventes.</p>
-        <div class="case__media" data-kpis>
-          <figure class="case__img"><div class="art art--1a"></div><img src="assets/realisations/projet1-a.png" alt="" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="case__img"><div class="art art--1b"></div><img src="assets/realisations/projet1-b.png" alt="" loading="lazy" onerror="this.remove()"></figure>
-          <div class="results">
-            <p class="results__label">Objectifs<br>visés&nbsp;:</p>
-            <div class="results__col">
-              <p class="kpi"><b data-kpi="40">+40%</b><small>de ventes en ligne en 3 mois</small></p>
-              <p class="kpi"><b data-kpi="25">+25%</b><small>de panier moyen grâce aux offres groupées</small></p>
-            </div>
-            <div class="results__col">
-              <p class="kpi"><b data-kpi="35">+35%</b><small>de conversions sur les fiches produits</small></p>
-              <p class="kpi"><b data-kpi="30">+30%</b><small>de clients qui rachètent</small></p>
-            </div>
-            <p class="pills"><span>Marketing</span><span>Stratégie</span></p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case case--2">
-        <h3 class="case__name" data-fill="big">COSMÉTIQUES</h3>
-        <p class="small-text case__desc" data-fill="small">Exemple de mission : une marque de cosmétiques qui veut se démarquer sur Instagram et TikTok et inspirer confiance.</p>
-        <div class="case__media" data-kpis>
-          <figure class="case__img"><div class="art art--2a"></div><img src="assets/realisations/projet2-a.png" alt="" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="case__img"><div class="art art--2b"></div><img src="assets/realisations/projet2-b.png" alt="" loading="lazy" onerror="this.remove()"></figure>
-          <div class="results">
-            <p class="results__label">Objectifs<br>visés&nbsp;:</p>
-            <div class="results__col">
-              <p class="kpi"><b data-kpi="60">+60%</b><small>d'abonnés sur Instagram et TikTok</small></p>
-              <p class="kpi"><b data-kpi="45">+45%</b><small>d'engagement sur les contenus</small></p>
-            </div>
-            <div class="results__col">
-              <p class="kpi"><b data-kpi="35">+35%</b><small>de ventes grâce aux vidéos de créateurs (UGC)</small></p>
-              <p class="kpi"><b data-kpi="50">+50%</b><small>d'avis clients publiés</small></p>
-            </div>
-            <p class="pills"><span>Branding</span><span>Production</span></p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case case--3">
-        <h3 class="case__name" data-fill="big">RESTAURATION</h3>
-        <p class="small-text case__desc" data-fill="small">Exemple de mission : un restaurant qui veut remplir sa salle en semaine et donner envie à ses clients de revenir.</p>
-        <div class="case__media" data-kpis>
-          <figure class="case__img"><div class="art art--3a"></div><img src="assets/realisations/projet3-a.png" alt="" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="case__img"><div class="art art--3b"></div><img src="assets/realisations/projet3-b.png" alt="" loading="lazy" onerror="this.remove()"></figure>
-          <div class="results">
-            <p class="results__label">Objectifs<br>visés&nbsp;:</p>
-            <div class="results__col">
-              <p class="kpi"><b data-kpi="40">+40%</b><small>de réservations en semaine</small></p>
-              <p class="kpi"><b data-kpi="20">+20%</b><small>d'augmentation du ticket moyen</small></p>
-            </div>
-            <div class="results__col">
-              <p class="kpi"><b data-kpi="50">+50%</b><small>de visibilité sur Google et Instagram</small></p>
-              <p class="kpi"><b data-kpi="30">+30%</b><small>de clients réguliers</small></p>
-            </div>
-            <p class="pills"><span>Marketing</span><span>Production</span></p>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <!-- ============ TARIFS ============ -->
-    <section class="pricing" id="tarifs" aria-labelledby="pricing-title">
-      <div class="section-head">
-        <span class="tag">[ tarifs ]</span>
-        <h2 class="h-text" id="pricing-title" data-fill>Des formules claires, <br>pensées pour grandir</h2>
-      </div>
-
-      <div class="pricing__controls">
-        <div class="switch" role="group" aria-label="Période de facturation">
-          <button type="button" class="is-on" data-billing="month" aria-pressed="true">Mensuel</button>
-          <button type="button" data-billing="quarter" aria-pressed="false">Trimestriel <em>−10%</em></button>
-          <i class="switch__thumb" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <div class="plans">
-        <article class="plan" data-reveal>
-          <header>
-            <h3>Lancement</h3>
-            <p>Pour les entrepreneurs qui veulent une présence professionnelle et régulière.</p>
-          </header>
-          <p class="plan__price"><b data-price="490">490</b> <span>€</span><small>/ mois</small></p>
-          <p class="plan__note" data-note data-commit="Sans engagement"></p>
-          <ul>
-            <li>Gestion de 2 réseaux sociaux</li>
-            <li>12 publications par mois</li>
-            <li>Visuels sur mesure à votre image</li>
-            <li>Calendrier éditorial</li>
-            <li>Rapport de performance mensuel</li>
-          </ul>
-          <a class="pill-btn" href="#rendez-vous" data-plan="Lancement">Choisir cette formule <svg aria-hidden="true"><use href="#arrow"/></svg></a>
-        </article>
-
-        <article class="plan plan--featured" data-reveal>
-          <span class="plan__badge">Le plus choisi</span>
-          <header>
-            <h3>Croissance</h3>
-            <p>Pour les marques prêtes à accélérer leurs ventes grâce à la publicité.</p>
-          </header>
-          <p class="plan__price"><b data-price="990">990</b> <span>€</span><small>/ mois</small></p>
-          <p class="plan__note" data-note data-commit="Engagement 3 mois minimum"></p>
-          <ul>
-            <li>Gestion de 3 réseaux sociaux</li>
-            <li>20 publications + 4 vidéos courtes</li>
-            <li>Campagnes publicitaires Meta / TikTok</li>
-            <li>Copywriting basé sur la psychologie</li>
-            <li>Stratégie de contenu trimestrielle</li>
-            <li>Rapport &amp; point stratégique toutes les 2 semaines</li>
-          </ul>
-          <a class="pill-btn pill-btn--light" href="#rendez-vous" data-plan="Croissance">Choisir cette formule <svg aria-hidden="true"><use href="#arrow"/></svg></a>
-        </article>
-
-        <article class="plan" data-reveal>
-          <header>
-            <h3>Élite</h3>
-            <p>L'accompagnement complet d'une équipe marketing externalisée.</p>
-          </header>
-          <p class="plan__price"><b data-price="1990">1 990</b> <span>€</span><small>/ mois</small></p>
-          <p class="plan__note" data-note data-commit="Engagement 3 mois minimum"></p>
-          <ul>
-            <li>Tout de la formule Croissance</li>
-            <li>Jusqu'à 4 réseaux sociaux</li>
-            <li>Shooting photo &amp; vidéo mensuel</li>
-            <li>Publicité Meta, TikTok &amp; Google Ads</li>
-            <li>Tests A/B des publicités et des visuels</li>
-            <li>Chef de projet dédié, support prioritaire</li>
-          </ul>
-          <a class="pill-btn" href="#rendez-vous" data-plan="Élite">Choisir cette formule <svg aria-hidden="true"><use href="#arrow"/></svg></a>
-        </article>
-      </div>
-
-      <div class="extras" data-reveal>
-        <h3 class="extras__title">Prestations à la carte</h3>
-        <ul class="extras__list">
-          <li><span>Audit marketing &amp; stratégique</span><b>390 €</b></li>
-          <li><span>Identité visuelle complète</span><b>dès 1 200 €</b></li>
-          <li><span>Site vitrine / landing page</span><b>dès 1 500 €</b></li>
-          <li><span>Shooting photo &amp; vidéo (demi-journée)</span><b>dès 490 €</b></li>
-        </ul>
-        <p class="extras__note">Tarifs hors budget publicitaire versé aux plateformes. Devis sur mesure pour les besoins spécifiques.</p>
-      </div>
-    </section>
-
-    <!-- ============ RENDEZ-VOUS ============ -->
-    <section class="booking" id="rendez-vous" aria-labelledby="booking-title">
-      <div class="section-head">
-        <span class="tag">[ rendez-vous ]</span>
-        <div>
-          <h2 class="h-text" id="booking-title" data-fill>Réservez votre <br>appel stratégique offert</h2>
-          <p class="small-text booking__intro">30 minutes pour analyser votre situation, clarifier vos objectifs et repartir avec un plan d'action. Par WhatsApp, Google Meet ou en présentiel.</p>
-        </div>
-      </div>
-
-      <form class="booker" data-booker novalidate>
-        <div class="booker__col booker__col--cal">
-          <div class="cal">
-            <div class="cal__head">
-              <button type="button" class="cal__nav" data-cal-prev aria-label="Mois précédent">‹</button>
-              <p class="cal__month" data-cal-month aria-live="polite"></p>
-              <button type="button" class="cal__nav" data-cal-next aria-label="Mois suivant">›</button>
-            </div>
-            <div class="cal__dow" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span></div>
-            <div class="cal__grid" data-cal-grid role="grid" aria-label="Choisissez une date"></div>
-          </div>
-          <div class="slots">
-            <p class="slots__label" data-slots-label>Choisissez d'abord une date</p>
-            <div class="slots__grid" data-slots role="listbox" aria-label="Créneaux disponibles"></div>
-            <p class="slots__tz">Horaires en heure GMT. Fermé le dimanche.</p>
-          </div>
-        </div>
-
-        <div class="booker__col booker__col--form">
-          <div class="summary" data-summary>
-            <span class="summary__dot" aria-hidden="true"></span>
-            <span data-summary-text>Aucun créneau sélectionné</span>
-          </div>
-          <div class="field">
-            <label for="bk-name">Nom complet *</label>
-            <input id="bk-name" name="name" type="text" autocomplete="name" required placeholder="Votre nom">
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="bk-email">Email *</label>
-              <input id="bk-email" name="email" type="email" autocomplete="email" required placeholder="vous@entreprise.com">
-            </div>
-            <div class="field">
-              <label for="bk-phone">Téléphone / WhatsApp *</label>
-              <input id="bk-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+228 …">
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="bk-service">Besoin principal</label>
-              <select id="bk-service" name="service">
-                <option>Stratégie marketing</option>
-                <option>Branding</option>
-                <option>Publicité &amp; réseaux sociaux</option>
-                <option>Production de contenu</option>
-                <option>Site web</option>
-                <option>Je ne sais pas encore</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="bk-plan">Formule envisagée</label>
-              <select id="bk-plan" name="plan">
-                <option>À définir ensemble</option>
-                <option>Lancement</option>
-                <option>Croissance</option>
-                <option>Élite</option>
-                <option>Prestation à la carte</option>
-              </select>
-            </div>
-          </div>
-          <fieldset class="field field--radio">
-            <legend>Format de l'appel</legend>
-            <label><input type="radio" name="mode" value="WhatsApp" checked><span>WhatsApp</span></label>
-            <label><input type="radio" name="mode" value="Google Meet"><span>Google Meet</span></label>
-            <label><input type="radio" name="mode" value="Présentiel"><span>Présentiel</span></label>
-          </fieldset>
-          <div class="field">
-            <label for="bk-msg">Votre projet en quelques mots</label>
-            <textarea id="bk-msg" name="message" rows="3" placeholder="Objectifs, secteur, délais…"></textarea>
-          </div>
-          <p class="form-error" data-form-error role="alert"></p>
-          <button class="pill-btn pill-btn--light pill-btn--block" type="submit">Confirmer le rendez-vous <svg aria-hidden="true"><use href="#arrow"/></svg></button>
-        </div>
-      </form>
-
-      <dialog class="modal" data-modal aria-labelledby="modal-title">
-        <div class="modal__box">
-          <button class="modal__close" type="button" data-modal-close aria-label="Fermer">×</button>
-          <p class="tag">[ presque terminé ]</p>
-          <h3 id="modal-title">Envoyez votre demande</h3>
-          <p class="modal__recap" data-modal-recap></p>
-          <p>Choisissez comment nous transmettre votre réservation. Nous confirmons chaque créneau sous 2 heures ouvrées.</p>
-          <div class="modal__actions">
-            <a class="pill-btn pill-btn--light" data-send-wa target="_blank" rel="noopener">Envoyer via WhatsApp</a>
-            <a class="pill-btn" data-send-mail>Envoyer par email</a>
-            <a class="modal__gcal" data-send-gcal target="_blank" rel="noopener">+ Ajouter à Google Agenda</a>
-          </div>
-        </div>
-      </dialog>
-    </section>
-
-    <!-- ============ FAQ ============ -->
-    <section class="faq" id="faq" aria-labelledby="faq-title">
-      <div class="section-head">
-        <span class="tag">[ faq ]</span>
-        <h2 class="h-text" id="faq-title" data-fill>Questions <br>fréquentes</h2>
-      </div>
-      <div class="faq__list">
-        <details><summary>Qu'est-ce que le marketing basé sur la psychologie ?</summary><p>Nous utilisons les mécanismes de décision du consommateur — preuve sociale, rareté, réciprocité, ancrage des prix — pour concevoir des messages, des visuels et des offres qui déclenchent l'action, de façon éthique et mesurable.</p></details>
-        <details><summary>Combien de temps avant de voir des résultats ?</summary><p>Les campagnes publicitaires donnent des premiers signaux en 2 à 4 semaines. Une croissance organique solide (communauté, notoriété) se construit généralement sur 3 à 6 mois.</p></details>
-        <details><summary>Le budget publicitaire est-il inclus dans les formules ?</summary><p>Non. Nos tarifs couvrent la stratégie, la création et la gestion. Le budget payé directement aux plateformes (Meta, TikTok, Google) est défini avec vous selon vos objectifs.</p></details>
-        <details><summary>Travaillez-vous à distance ?</summary><p>Oui. Nous accompagnons des marques partout dans le monde, entièrement à distance si nécessaire.</p></details>
-        <details><summary>Y a-t-il un engagement de durée ?</summary><p>La formule Lancement est sans engagement. Les formules Croissance et Élite demandent un engagement de 3 mois minimum : c'est le temps nécessaire pour mettre en place une stratégie et mesurer de vrais résultats. La facturation trimestrielle vous fait économiser 10 %.</p></details>
-        <details><summary>Comment se passe le premier rendez-vous ?</summary><p>Un appel stratégique gratuit de 30 minutes (WhatsApp, Google Meet ou en présentiel) pour analyser votre situation, vos objectifs et vous recommander la formule adaptée.</p></details>
-      </div>
-    </section>
-  </main>
-
-  <!-- ============ PIED DE PAGE ============ -->
-  <footer class="footer" id="contact">
-    <div class="footer__top">
-      <p class="h-text footer__claim" data-fill>Prêt à comprendre <br>ce qui fait acheter vos clients ?</p>
-      <a class="round-btn round-btn--foot" href="#rendez-vous" data-magnetic><span>Démarrer <svg aria-hidden="true"><use href="#arrow"/></svg></span></a>
+<!-- PORTFOLIO -->
+<section class="sec" id="portfolio"><div class="w">
+  <div class="giant rv">Portfolio</div>
+  <div class="inner">
+    <p class="sub-c rv">Des concepts réalisés à partir des photos publiques de marques beauté françaises. Chaque vidéo présente toute la gamme en motion design 3D.</p>
+    <div class="pf">
+      <div class="card-v rv" data-video="videos/Nuria.mp4"><div class="soon"><img src="img/produits/nuria-ampoule.webp" alt=""></div><div class="meta"><b>Nuria</b><span>Concept · Soin coréen</span></div></div>
+      <div class="card-v rv" data-video="videos/aloe.mp4"><div class="soon"><img src="img/produits/aloe-pot.webp" alt="" style="height:38%"></div><div class="meta"><b>Aloe Paris</b><span>Concept · Anti-âge</span></div></div>
+      <div class="card-v rv" data-video="videos/aera.mp4"><div class="soon"><img src="img/produits/aera-brosse.webp" alt="" style="height:40%"></div><div class="meta"><b>Aera</b><span>Concept · Drainage</span></div></div>
     </div>
+    <div class="center rv"><a href="#offres" class="pill soft">Voir les offres</a></div>
+  </div>
+</div></section>
 
-    <div class="footer__cols">
-      <address class="footer__col">
-        <span class="tag">[ contact ]</span>
-        <a href="mailto:contact@astroploy.com">contact@astroploy.com</a>
-        <a href="tel:+22873273772">+228 73 27 37 72</a>
-      </address>
-      <div class="footer__col">
-        <span class="tag">[ réseaux ]</span>
-        <a href="https://www.instagram.com/marketing__psychologie/" target="_blank" rel="noopener me">Instagram <svg aria-hidden="true"><use href="#arrow"/></svg></a>
-        <a href="https://wa.me/22873273772" target="_blank" rel="noopener">WhatsApp <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+<!-- METHODE -->
+<section class="sec" id="methode"><div class="w">
+  <div class="giant rv">Méthode</div>
+  <div class="inner">
+    <div class="steps">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M200 110 C 330 -20, 480 -10, 600 40 S 900 120, 1000 100" fill="none" stroke="#8F7FEE" stroke-width="2" stroke-dasharray="6 6"/><circle cx="200" cy="110" r="6" fill="#fff" stroke="#8F7FEE" stroke-width="2"/><circle cx="600" cy="40" r="6" fill="#fff" stroke="#8F7FEE" stroke-width="2"/><circle cx="1000" cy="100" r="6" fill="#fff" stroke="#8F7FEE" stroke-width="2"/></svg>
+      <div class="step rv" style="--rot:-2deg"><div class="num">1</div>
+        <div class="mock"><div class="row"><i></i>Lien de votre boutique</div><div class="row"><i></i>Photos produit</div><div class="row"><i></i>Vos pubs actuelles analysées</div></div>
+        <h3>Brief en 5 minutes</h3><p>Vous envoyez votre boutique et vos photos. On repère les angles publicitaires qui manquent à votre compte.</p></div>
+      <div class="step rv" style="--rot:1.5deg"><div class="num">2</div>
+        <div class="mock"><div class="thumbs"><img src="img/produits/nuria-ampoule.webp" alt=""><img src="img/produits/nuria-gouttes.webp" alt=""><img src="img/produits/aloe-gel.webp" alt=""></div><div class="row"><i></i>Motion design 3D · lumière · sound design</div></div>
+        <h3>Production motion design 3D</h3><p>Vos produits sont recréés en motion design 3D, animés et mis en scène : bulles de verre, reflets, lumière studio.</p></div>
+      <div class="step rv" style="--rot:-1.5deg"><div class="num">3</div>
+        <div class="mock"><div class="row"><i></i>Formats 9:16 · 4:5 · 1:1</div><div class="row"><i></i>3 accroches par vidéo</div><div class="row"><i></i>2 séries de retouches</div></div>
+        <h3>Livraison à J+5</h3><p>Vos pubs arrivent prêtes à lancer sur Meta, TikTok et Instagram. On ajuste jusqu'à ce que ce soit parfait.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- BENEFICES -->
+<section class="sec" id="benefices"><div class="w">
+  <div class="giant rv">Bénéfices</div>
+  <div class="inner"><div class="cmp rv">
+    <div class="c no"><h4>Sans nouvelles créas</h4><ul>
+      <li>Les mêmes vidéos tournent depuis des semaines, la pub s'use.</li>
+      <li>Vous ressemblez à toutes les marques en face caméra.</li>
+      <li>Le coût par achat monte, les marges fondent.</li>
+      <li>Un tournage UGC prend 2 à 3 semaines et coûte cher.</li>
+      <li>Votre produit passe inaperçu dans le fil.</li></ul></div>
+    <div class="c yes"><h4>Avec une pub en motion design 3D</h4><ul>
+      <li>De nouveaux angles chaque mois pour relancer vos campagnes.</li>
+      <li>Un rendu premium, digne des grandes maisons.</li>
+      <li>Votre produit sous tous les angles, sans tournage.</li>
+      <li>Livré en 5 jours, à partir de vos simples photos.</li>
+      <li>Un visuel qui arrête le scroll et fait cliquer.</li></ul></div>
+  </div></div>
+</div></section>
+
+<!-- ENGAGEMENTS (remplace les avis tant qu'il n'y a pas de clients) -->
+<section class="sec" id="engagements"><div class="w">
+  <div class="giant rv" style="font-size:clamp(38px,11.5vw,170px)">Engagements</div>
+  <div class="inner"><div class="eng">
+    <div class="e rv"><b>5 j</b><p>Livraison en 5 jours ouvrés, ou vous êtes remboursé.</p></div>
+    <div class="e rv"><b>2×</b><p>Deux séries de retouches incluses dans chaque pack.</p></div>
+    <div class="e rv"><b>100 %</b><p>Droits d'utilisation publicitaire inclus, sans limite de durée.</p></div>
+    <div class="e rv"><b>24 h</b><p>Réponse et devis sous 24 h, prix fixe par pack, sans surprise.</p></div>
+  </div></div>
+</div></section>
+
+<!-- OFFRES -->
+<section class="sec" id="offres"><div class="w">
+  <div class="giant rv">Nos offres</div>
+  <div class="inner">
+    <div class="cfg rv">
+      <div>
+        <h3>Vos pubs en motion design 3D, pensées pour convertir</h3>
+        <p class="d">Motion design 3D de vos produits, angles publicitaires, animation, sound design et retouches inclus.</p>
+        <div class="lab">Choisissez votre pack</div>
+        <div class="seg" id="packs">
+          <button data-p="290" data-n="1 pub motion design 3D · 3 accroches">Test<b>290 €</b></button>
+          <button class="on" data-p="490" data-n="2 pubs motion design 3D · 2 angles · 3 accroches chacune">Scale<b>490 €</b></button>
+          <button data-p="1490" data-n="6 pubs motion design 3D par mois · 2 livraisons" data-m="1">Cadence<b>1 490 €/mois</b></button>
+        </div>
+        <div class="lab">Options</div>
+        <div class="opt" data-p="60"><div><div class="t">5 accroches supplémentaires</div><div class="s">Les 3 premières secondes décident de tout : testez plus d'ouvertures.</div></div><div style="display:flex;gap:14px;align-items:center"><span class="p">+60 €</span><span class="sw"></span></div></div>
+        <div class="opt" data-p="100"><div><div class="t">Livraison express 48 h</div><div class="s">Pour un lancement ou une promo qui n'attend pas.</div></div><div style="display:flex;gap:14px;align-items:center"><span class="p">+100 €</span><span class="sw"></span></div></div>
+        <div class="opt" data-p="90"><div><div class="t">Voix off professionnelle<span class="tag-pop">NOUVEAU</span></div><div class="s">Une vraie voix pour porter votre message.</div></div><div style="display:flex;gap:14px;align-items:center"><span class="p">+90 €</span><span class="sw"></span></div></div>
+        <div class="opt" data-p="120"><div><div class="t">Versions statiques (images)</div><div class="s">Les meilleurs plans en visuels fixes pour vos carrousels et pubs image.</div></div><div style="display:flex;gap:14px;align-items:center"><span class="p">+120 €</span><span class="sw"></span></div></div>
       </div>
-      <nav class="footer__col" aria-label="Pied de page">
-        <span class="tag">[ navigation ]</span>
-        <a href="#services">Services</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#rendez-vous">Rendez-vous</a>
-        <a href="#faq">FAQ</a>
-      </nav>
+      <div class="side">
+        <div class="lab" style="margin-top:0">Inclus</div>
+        <ul class="inc"><li id="incl">2 pubs motion design 3D · 2 angles · 3 accroches chacune</li><li>Formats 9:16 · 4:5 · 1:1</li><li>Sound design & musique libre de droits</li><li>2 séries de retouches</li><li>Droits publicitaires inclus</li></ul>
+        <div class="total"><small>Total estimé</small><b id="total">490 €</b><a href="#contact" class="pill big" id="orderBtn">Commander ce pack</a></div>
+      </div>
     </div>
+    <div class="pilot rv"><div><b>3 places pilotes</b><br><span style="color:var(--muted)">Pack Test (1 pub) à 190 € au lieu de 290 €, en échange de votre avis sur notre travail.</span></div><a href="#contact" class="pill" id="pilotBtn">Réserver une place →</a></div>
+  </div>
+</div></section>
 
-    <p class="footer__brand" aria-hidden="true">ASTROPLOY</p>
-    <div class="footer__legal">
-      <span>© <span data-year>2026</span> Astroploy. Tous droits réservés.</span>
-      <a href="#accueil">Retour en haut ↑</a>
+<!-- DIFFERENCES -->
+<section class="sec" id="differences"><div class="w">
+  <div class="giant rv">Différences</div>
+  <div class="inner"><div class="diff">
+    <div class="c a rv"><h4>Tournage UGC / freelance</h4><ul>
+      <li>Envoi de produits, casting, tournage : 2 à 3 semaines.</li><li>Un seul angle, souvent le même que vos concurrents.</li><li>Vous gérez le brief et les relances.</li><li>Rendu inégal selon le créateur.</li><li>Coût qui grimpe à chaque nouvelle vidéo.</li></ul></div>
+    <div class="c b rv"><h4>Astroploy</h4><ul>
+      <li>Aucun tournage : tout part de vos photos.</li><li>Chaque vidéo repose sur un angle psychologique précis.</li><li>Pilotage complet, du brief à la livraison.</li><li>Rendu premium constant, en motion design 3D.</li><li>Livré en 5 jours, prix fixe par pack.</li></ul></div>
+  </div></div>
+</div></section>
+
+<!-- FAQ -->
+<section class="sec" id="faq"><div class="w">
+  <div class="giant rv">FAQ</div>
+  <div class="inner faqg">
+    <div class="rv">
+      <details open><summary>Pourquoi une pub en motion design 3D plutôt qu'une vidéo UGC ?</summary><p>Quand toutes les marques montrent la même vidéo face caméra, celle qui montre son produit autrement se remarque. Le motion design 3D donne un rendu premium, sans tournage, et se décline très vite en nouveaux angles.</p></details>
+      <details><summary>Combien de temps faut-il ?</summary><p>5 jours ouvrés après validation du brief. En express, 48 h. Si nous sommes en retard, vous êtes remboursé.</p></details>
+      <details><summary>De quoi avez-vous besoin ?</summary><p>Le lien de votre boutique et les photos de vos produits : celles de votre site suffisent. Pas d'envoi de produit, pas de studio.</p></details>
+      <details><summary>Est-ce généré par une IA ?</summary><p>Non. Vos produits sont animés en motion design 3D, puis montés à la main : lumière, mouvements, sound design. Chaque vidéo est pensée pour votre marque.</p></details>
+      <details><summary>Et si le résultat ne me plaît pas ?</summary><p>Deux séries de retouches sont incluses : texte, rythme, musique, couleurs, accroches.</p></details>
+      <details><summary>Les vidéos sont-elles prêtes pour la pub ?</summary><p>Oui : formats 9:16, 4:5 et 1:1, sons libres de droits et droits d'utilisation publicitaire inclus.</p></details>
+      <details><summary>Garantissez-vous des résultats publicitaires ?</summary><p>Personne ne peut garantir un ROAS : il dépend aussi de votre ciblage, de votre site et de votre offre. Nous garantissons des créas de qualité, livrées à temps, construites pour vendre.</p></details>
     </div>
-  </footer>
+    <div class="ask rv"><h3>D'autres questions ? Écrivez-nous !</h3><p>Réponse sous 24 h. Envoyez-nous le lien de votre boutique, on vous conseille le pack adapté.</p><a href="#contact" class="pill">Démarrer mon projet</a></div>
+  </div>
+</div></section>
 
-  <a class="wa-float" href="https://wa.me/22873273772" target="_blank" rel="noopener" aria-label="Écrire à Astroploy sur WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>
-  </a>
+<!-- CONTACT -->
+<section class="sec" id="contact"><div class="w">
+  <div class="giant rv">Contact</div>
+  <div class="inner"><div class="contact rv">
+    <div><h3>Faites de votre produit une référence <span class="grad">impossible à ignorer</span>.</h3>
+      <p>Envoyez-nous le lien de votre boutique et l’offre choisie. On revient vers vous sous 24 h avec un devis clair.</p>
+      <p class="fine">Ou directement : <a href="mailto:contact@astroploy.com" style="color:#fff;text-decoration:underline">contact@astroploy.com</a></p></div>
+    <form name="contact" id="contactForm" method="POST" action="https://formsubmit.co/wector402@gmail.com">
+            <input type="hidden" name="_subject" id="subjectField" value="Nouveau client — site Astroploy">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input name="nom" placeholder="Votre prénom" required>
+      <input name="marque" id="marqueField" placeholder="Nom de la marque" required>
+      <input name="boutique" placeholder="Lien de votre boutique (https://…)" required>
+      <input name="email" id="emailField" type="email" placeholder="Email professionnel" required>
+      <select name="pack" id="packField" required>
+        <option value="" disabled selected>Choisissez votre offre…</option>
+        <option value="Test — 290 €">Pack Test (1 pub) — 290 €</option>
+        <option value="Scale — 490 €">Pack Scale (2 pubs) — 490 €</option>
+        <option value="Cadence — 1 490 €/mois">Pack Cadence (6 pubs/mois) — 1 490 €/mois</option>
+        <option value="Place pilote — 190 €">Place pilote (1 pub) — 190 €</option>
+      </select>
+      <input type="hidden" name="options" id="optionsField" value="">
+      <textarea name="message" rows="3" placeholder="Votre produit phare, vos objectifs… (facultatif)"></textarea>
+      <button class="pill" type="submit" id="sendBtn">Envoyer ma demande →</button>
+      <p class="fine" id="formMsg">Réponse sous 24 h · Aucun engagement · <a href="#offres" style="text-decoration:underline">Voir les tarifs</a></p>
+    </form>
+  </div></div>
+</div></section>
+
+<footer><div class="w">
+  <div class="fr">
+    <img src="img/logo-white.png" alt="Astroploy" style="height:34px">
+    <div class="fl"><a href="#portfolio">Portfolio</a><a href="#methode">Méthode</a><a href="#offres">Tarifs</a><a href="#faq">FAQ</a><a href="https://www.instagram.com/marketing__psychologie" target="_blank" rel="noopener">Instagram</a><a href="mailto:contact@astroploy.com">contact@astroploy.com</a></div>
+  </div>
+  <div class="copy"><span>© Astroploy, 2026</span><span><a href="mentions-legales.html">Mentions légales</a></span></div>
+</div></footer>
+
+<script>
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// marquee duplicate
+const tr=document.getElementById('track');tr.innerHTML+=tr.innerHTML;
+// statement word reveal
+const st=document.getElementById('stmt');const acc=['désir.','3D','brille,'];
+st.innerHTML=st.textContent.split(' ').map(w=>`<span class="wd${acc.includes(w)?' acc':''}">${w}</span>`).join(' ');
+const wds=[...st.querySelectorAll('.wd')];
+addEventListener('scroll',()=>{const r=st.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight*0.85-r.top)/(r.height+innerHeight*0.35)));const n=Math.round(p*wds.length);wds.forEach((w,i)=>w.classList.toggle('on',i<n))},{passive:true});
+// bubbles in the showcase frame
+const fr=document.getElementById('frame');
+for(let i=0;i<14;i++){const b=document.createElement('div');b.className='bubble';const s=10+Math.random()*46;b.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*96}%;bottom:${-5+Math.random()*20}%;animation-duration:${7+Math.random()*8}s;animation-delay:${-Math.random()*12}s`;fr.appendChild(b)}
+// portfolio: swap placeholders for videos when files exist
+document.querySelectorAll('.card-v[data-video]').forEach(c=>{const v=document.createElement('video');v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='metadata';v.addEventListener('loadeddata',()=>{const s=c.querySelector('.soon');if(s)s.replaceWith(v);v.play().catch(()=>{})},{once:true});v.src=c.dataset.video});
+// pricing configurator
+let base=490,monthly=false;const tot=document.getElementById('total'),incl=document.getElementById('incl'),pf=document.getElementById('packField');
+function calc(){let s=base;document.querySelectorAll('.opt.on').forEach(o=>s+=+o.dataset.p);tot.textContent=s.toLocaleString('fr-FR')+' €'+(monthly?'/mois':'')}
+document.querySelectorAll('#packs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#packs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');base=+b.dataset.p;monthly=!!b.dataset.m;incl.textContent=b.dataset.n;calc()});
+document.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{o.classList.toggle('on');calc()});
+
+// ---- formulaire : choix de l'offre + envoi fiable + page merci ----
+const packSel=document.getElementById('packField'),optF=document.getElementById('optionsField');
+const packMap={290:'Test — 290 €',490:'Scale — 490 €',1490:'Cadence — 1 490 €/mois'};
+document.getElementById('orderBtn').addEventListener('click',()=>{packSel.value=packMap[base]||'';optF.value=[...[...document.querySelectorAll('.opt.on')].map(o=>o.textContent.replace(/\s+/g,' ').trim()),'Total estimé '+tot.textContent].join(' | ')});
+document.getElementById('pilotBtn').addEventListener('click',()=>{packSel.value='Place pilote — 190 €'});
+const form=document.getElementById('contactForm'),msg=document.getElementById('formMsg'),btn=document.getElementById('sendBtn');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!packSel.value){packSel.focus();msg.innerHTML='Choisissez une offre pour continuer. <a href="#offres" style="text-decoration:underline">Comparer les tarifs</a>';return}
+  document.getElementById('subjectField').value='Nouveau client — site Astroploy : '+document.getElementById('marqueField').value+' ('+packSel.value+')';
+  if(location.protocol==='file:'){msg.innerHTML='<b>Test sur ordinateur :</b> l’envoi fonctionne uniquement quand le site est en ligne (Netlify). Ici, rien n’est envoyé. <a href="merci.html" style="text-decoration:underline">Voir la page Merci</a>';return}
+  btn.disabled=true;btn.textContent='Envoi en cours…';
+  try{
+    const data=Object.fromEntries(new FormData(form).entries());
+    data._replyto=document.getElementById('emailField').value;
+    const r=await fetch('https://formsubmit.co/ajax/wector402@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+    const j=await r.json().catch(()=>({}));
+    if(String(j.success)!=='true'){ if(j.message){btn.disabled=false;btn.textContent='Envoyer ma demande →';msg.textContent=j.message;return} throw new Error('fail'); }
+    location.href='merci.html';
+  }catch(err){
+    btn.disabled=false;btn.textContent='Envoyer ma demande →';
+    msg.innerHTML='L’envoi n’a pas fonctionné. Écrivez-nous directement : <a href="mailto:contact@astroploy.com" style="text-decoration:underline">contact@astroploy.com</a>';
+  }
+});
+const nv=document.querySelector('.nav');const onS=()=>nv.classList.toggle('show',scrollY>window.innerHeight*0.6);addEventListener('scroll',onS,{passive:true});onS();
+</script>
 </body>
 </html>
