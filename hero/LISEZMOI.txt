@@ -1,0 +1,12 @@
+DOSSIER HERO - vidéo de présentation du site
+
+Fichiers lus automatiquement par la page d'accueil :
+  hero.mp4        la vidéo (sans voix, déjà fournie)
+  voix-off.mp3    ta voix off (à déposer ici, exactement ce nom)
+
+Comment ça marche :
+- La vidéo se lance seule, en boucle, sans son, à la place du cadre avec les produits.
+- Si voix-off.mp3 est dans ce dossier, un bouton "Activer le son" apparaît sur la vidéo. Le visiteur clique, la voix démarre synchronisée.
+- Si tu préfères une vidéo finale avec la voix déjà dedans : remplace hero.mp4 par ton export. Le bouton "Activer le son" activera alors le son de la vidéo.
+- Format voix : mp3, durée environ 59 secondes. Respecte les heures de script-voix-off.txt.
+- Après avoir déposé un fichier : Ctrl+F5 dans le navigateur, et pense à remettre le dossier sur Netlify.
