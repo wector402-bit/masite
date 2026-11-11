@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /merci.html
 Disallow: /en/thanks.html
+Disallow: /pour/
 
 Sitemap: https://astroploy.com/sitemap.xml
