@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Votre vidéo Clubeo · Astroploy</title>
+<link rel="icon" href="/img/favicon.png">
+<style>
+:root{--b:#2F6BFF;--bd:#1f55d9;--t:#111;--g:#5f6368;--l:#e6e8ee;--bg:#f6f7fb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+main{max-width:720px;margin:0 auto;padding:32px 16px 64px}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.top img{height:30px}
+.card{background:#fff;border:1px solid var(--l);border-radius:20px;padding:28px 24px;box-shadow:0 18px 50px -24px rgba(20,30,60,.25)}
+h1{font-size:clamp(26px,5vw,34px);letter-spacing:-.8px;line-height:1.15;margin:0 0 8px}
+.sous{color:var(--g);margin:0 0 6px;font-size:17px}
+.etapes{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 6px}
+.etapes span{font-size:13px;font-weight:600;background:#eef3ff;color:var(--bd);padding:6px 12px;border-radius:99px}
+.q{margin-top:26px}
+.q label.t{display:block;font-weight:700;font-size:16px;margin-bottom:4px}
+.q .h{color:var(--g);font-size:14px;margin:0 0 10px}
+input[type=text],input[type=email],textarea{width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid #d5d9e2;border-radius:12px;background:#fff;color:var(--t);transition:border-color .15s,box-shadow .15s}
+textarea{min-height:96px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--b);box-shadow:0 0 0 4px rgba(47,107,255,.14)}
+.choix{display:grid;gap:8px}
+.choix label{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1.5px solid #d5d9e2;border-radius:12px;cursor:pointer;font-size:16px;background:#fff;transition:border-color .15s,background .15s}
+.choix label:has(input:checked){border-color:var(--b);background:#f3f6ff}
+.choix input{width:18px;height:18px;accent-color:var(--b);flex:none}
+.autre{margin-top:8px;display:none}
+.fichiers{border:1.5px dashed #c3c9d6;border-radius:12px;padding:14px;background:#fafbff;font-size:15px}
+.fichiers input{font-size:14px;margin-top:6px;max-width:100%}
+.vite{margin-top:28px;padding:16px;border-radius:14px;background:#fff8e6;border:1px solid #f3dfa6;font-size:15px}
+.vite label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.vite input{width:18px;height:18px;margin-top:3px;accent-color:var(--b);flex:none}
+button{margin-top:28px;width:100%;font:inherit;font-weight:700;font-size:18px;color:#fff;background:var(--b);border:0;border-radius:14px;padding:17px;cursor:pointer;box-shadow:0 12px 26px -12px rgba(47,107,255,.7)}
+button:hover{background:var(--bd)}
+button[disabled]{opacity:.65;cursor:wait}
+.req{color:#d93025}
+.deja{display:none;text-align:center}
+.deja .ok{width:64px;height:64px;border-radius:50%;background:#e8f7ee;display:flex;align-items:center;justify-content:center;margin:4px auto 14px}
+.lien{background:none;box-shadow:none;color:var(--b);font-weight:600;font-size:16px;width:auto;padding:8px 4px;margin-top:10px;text-decoration:underline}
+.lien:hover{background:none}
+footer{margin-top:22px;text-align:center;color:var(--g);font-size:13px}
+</style></head><body><main>
+<div class="top"><img src="/img/logo-black.png" alt="Astroploy"></div>
+
+<div class="card deja" id="deja">
+  <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#1e9e57" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <h1>Vos réponses sont déjà envoyées</h1>
+  <p class="sous">Merci ! Nous préparons votre scénario. Vous le recevrez par e-mail pour validation.</p>
+  <button class="lien" type="button" id="modifier">Modifier mes réponses</button>
+</div>
+
+<div class="card" id="carte">
+  <h1>Votre vidéo Clubeo</h1>
+  <p class="sous">Quelques réponses rapides pour écrire votre scénario. Comptez 3 minutes.</p>
+  <div class="etapes"><span>1 · Vos réponses</span><span>2 · Scénario à valider</span><span>3 · Vidéo livrée</span></div>
+
+  <form id="f" method="POST" action="https://formsubmit.co/wector402@gmail.com" enctype="multipart/form-data">
+    <input type="hidden" name="_subject" value="Clubeo : réponses du formulaire vidéo">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://astroploy.com/brief/merci.html?c=clubeo">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+    <input type="hidden" name="Client" value="Clubeo (Spacefoot SAS) · facture F-2026-001">
+
+    <div class="q"><label class="t" for="nom">Votre nom <span class="req">*</span></label>
+      <input type="text" id="nom" name="Nom" required autocomplete="name"></div>
+    <div class="q"><label class="t" for="mail">Votre e-mail <span class="req">*</span></label>
+      <p class="h">Pour vous envoyer le scénario à valider.</p>
+      <input type="email" id="mail" name="E-mail" required autocomplete="email"></div>
+
+    <div class="q"><span class="t" style="display:block;font-weight:700;font-size:16px;margin-bottom:4px">1. Où la vidéo servira-t-elle ?</span>
+      <p class="h">Plusieurs choix possibles.</p>
+      <div class="choix">
+        <label><input type="checkbox" name="Usage" value="Page d'accueil">Page d'accueil de clubeo.com</label>
+        <label><input type="checkbox" name="Usage" value="Publicités">Publicités (Facebook, Instagram, Google…)</label>
+        <label><input type="checkbox" name="Usage" value="Réseaux sociaux">Réseaux sociaux</label>
+        <label><input type="checkbox" name="Usage" value="E-mails aux clubs">E-mails aux clubs</label>
+      </div></div>
+
+    <div class="q"><span class="t" style="display:block;font-weight:700;font-size:16px;margin-bottom:10px">2. À qui parle-t-elle surtout ?</span>
+      <div class="choix">
+        <label><input type="radio" name="Public" value="Présidents de club">Aux présidents de club</label>
+        <label><input type="radio" name="Public" value="Bénévoles qui gèrent le site">Aux bénévoles qui gèrent le site</label>
+        <label><input type="radio" name="Public" value="Les deux">Aux deux</label>
+      </div></div>
+
+    <div class="q"><label class="t" for="formules">3. Quelles formules payantes mettre en avant ?</label>
+      <p class="h">Le nom de chaque formule et ce qu'elle apporte au club.</p>
+      <textarea id="formules" name="Formules payantes"></textarea></div>
+
+    <div class="q"><label class="t" for="fin">4. La phrase de fin</label>
+      <p class="h">Ce que le spectateur doit faire après la vidéo.</p>
+      <input type="text" id="fin" name="Phrase de fin" placeholder="Créez gratuitement le site de votre club"></div>
+
+    <div class="q"><span class="t" style="display:block;font-weight:700;font-size:16px;margin-bottom:10px">5. Le club à montrer dans la vidéo</span>
+      <div class="choix">
+        <label><input type="radio" name="Club montré" value="Saint-Priest Rugby">Saint-Priest Rugby, comme dans l'exemple</label>
+        <label><input type="radio" name="Club montré" value="Un autre club" id="autreclub">Un autre club</label>
+      </div>
+      <input type="text" class="autre" id="clubnom" name="Autre club (nom ou adresse du site)" placeholder="Nom du club ou adresse de son site"></div>
+
+    <div class="q"><span class="t" style="display:block;font-weight:700;font-size:16px;margin-bottom:10px">6. La voix off</span>
+      <div class="choix">
+        <label><input type="radio" name="Voix" value="Voix d'homme">Voix d'homme</label>
+        <label><input type="radio" name="Voix" value="Voix de femme">Voix de femme</label>
+        <label><input type="radio" name="Voix" value="Peu importe">Peu importe</label>
+      </div></div>
+
+    <div class="q"><span class="t" style="display:block;font-weight:700;font-size:16px;margin-bottom:4px">7. Vos fichiers (facultatif)</span>
+      <div class="fichiers">Votre logo en haute définition (SVG ou PNG) et quelques captures de l'espace où un club modifie son site.<br>
+        <input type="file" name="Fichiers" multiple accept=".svg,.png,.jpg,.jpeg,.pdf"></div></div>
+
+    <div class="q"><label class="t" for="plus">8. Autre chose à nous dire ?</label>
+      <textarea id="plus" name="Remarques" placeholder="Une idée, un exemple de vidéo que vous aimez, une date importante…"></textarea></div>
+
+    <div class="vite"><label><input type="checkbox" name="Faites au mieux" value="Oui"><span><b>Pas le temps de tout remplir ?</b> Cochez cette case : nous partons de votre site et vous envoyons le scénario à valider.</span></label></div>
+
+    <button type="submit" id="go">Envoyer mes réponses</button>
+  </form>
+</div>
+<footer>Astroploy · contact@astroploy.com</footer>
+</main>
+<script>
+const K='astroploy_brief_clubeo', f=document.getElementById('f');
+const lire=()=>{try{return JSON.parse(localStorage.getItem(K)||'null')}catch(e){return null}};
+const ecrire=v=>{try{localStorage.setItem(K,JSON.stringify(v))}catch(e){}};
+// déjà envoyé sur cet appareil : on l'affiche, avec la possibilité de modifier
+const s=lire();
+if(s&&s.envoye){document.getElementById('deja').style.display='block';document.getElementById('carte').style.display='none'}
+document.getElementById('modifier').onclick=()=>{document.getElementById('deja').style.display='none';document.getElementById('carte').style.display='block';window.scrollTo(0,0)};
+// réponses déjà données : on les remet
+if(s&&s.v){for(const [n,val] of s.v){const els=f.querySelectorAll(`[name="${CSS.escape(n)}"]`);
+  els.forEach(e=>{if(e.type==='checkbox'||e.type==='radio'){if(e.value===val)e.checked=true}else if(e.type!=='file'&&e.type!=='hidden')e.value=val})}}
+const ac=document.getElementById('autreclub'), cn=document.getElementById('clubnom');
+const maj=()=>{cn.style.display=ac.checked?'block':'none'}; f.addEventListener('change',maj); maj();
+f.addEventListener('submit',()=>{
+  const v=[];for(const [n,val] of new FormData(f)){if(typeof val==='string'&&!n.startsWith('_'))v.push([n,val])}
+  ecrire({envoye:true,v}); const b=document.getElementById('go'); b.disabled=true; b.textContent='Envoi en cours…';
+});
+</script></body></html>
