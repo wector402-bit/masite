@@ -26,10 +26,20 @@ f.addEventListener('click',e=>{e.stopPropagation();const z=$('z');fs()?(document
 if(top!==self){m.textContent='Ouvrez le lien directement.';return}
 const u=s=>Uint8Array.from(atob(s.replace(/-/g,'+').replace(/_/g,'/')),c=>c.charCodeAt(0));
 (async()=>{try{const cle=location.hash.slice(1);if(cle.length<22){m.textContent='Lien incomplet : ouvrez le lien entier reçu par e-mail.';return}
-const k=await crypto.subtle.importKey('raw',u(cle.slice(0,22)+'=='),'AES-GCM',false,['decrypt']),N=8,T=16417352;let fait=0;const out=[];
-const un=async i=>{const r=await fetch('d/'+i+'.bin');if(!r.ok)throw 0;const d=new Uint8Array(await r.arrayBuffer());out[i]=await crypto.subtle.decrypt({name:'AES-GCM',iv:d.slice(0,12),additionalData:new Uint8Array([i])},k,d.slice(12));fait+=d.length;m.textContent='Chargement '+Math.min(100,Math.round(100*fait/T))+' %'};
-let n=0;await Promise.all([0,1,2,3].map(async()=>{while(n<N)await un(n++)}));
-p.src=URL.createObjectURL(new Blob(out,{type:'video/mp4'}));out.length=0;pret=true;b.hidden=false;m.textContent='Activez le son, puis lancez la vidéo';if(document.fullscreenEnabled||document.webkitFullscreenEnabled)f.hidden=false}
+const k=await crypto.subtle.importKey('raw',u(cle.slice(0,22)+'=='),'AES-GCM',false,['decrypt']),I={"a":[63,16413192],"codec":"avc1.64002a","b":[33,8645858],"c":[21,5265611]},enc=new TextEncoder;
+const un=async(x,i)=>{for(let e=0;;e++)try{const r=await fetch(x+'/'+i+'.bin');if(!r.ok)throw 0;const d=new Uint8Array(await r.arrayBuffer());return await crypto.subtle.decrypt({name:'AES-GCM',iv:d.slice(0,12),additionalData:enc.encode(x+i)},k,d.slice(12))}catch(z){if(e>3)throw z;await new Promise(q=>setTimeout(q,500))}};
+const ok=()=>{if(pret)return;pret=true;b.hidden=false;m.textContent='Activez le son, puis lancez la vidéo';if(document.fullscreenEnabled||document.webkitFullscreenEnabled)f.hidden=false};
+let t0=performance.now();const prem=await un('b',0);const rt=performance.getEntriesByType('resource').filter(e=>/b\/0\.bin$/.test(e.name)).pop(),v0=262144/(Math.max(20,rt&&rt.responseStart?rt.responseEnd-rt.responseStart+30:performance.now()-t0)/1000);
+const x=v0>3e6?'a':v0>1.3e6?'b':'c',[N,T]=I[x],dispo=[];if(x==='b')dispo[0]=prem;
+const MS=window.ManagedMediaSource||window.MediaSource,mime='video/mp4; codecs="'+I.codec+', mp4a.40.2"',flux=MS&&MS.isTypeSupported(mime);
+let sb,ms,at=0,occ=false,fini=false;
+const pousse=()=>{if(!flux||!sb||sb.updating||occ)return;if(dispo[at]){occ=true;sb.appendBuffer(dispo[at]);dispo[at]=null;at++}else if(at===N&&!fini){fini=true;ms.endOfStream()}};
+if(flux){ms=new MS;p.src=URL.createObjectURL(ms);await new Promise(r=>ms.addEventListener('sourceopen',r,{once:true}));sb=ms.addSourceBuffer(mime);sb.addEventListener('updateend',()=>{occ=false;pousse()})}
+t0=performance.now();let recu=0,suiv=dispo[0]?1:0,ap=suiv;pousse();
+await Promise.all([0,1,2,3,4,5].map(async()=>{while(suiv<N){const i=suiv++;dispo[i]=await un(x,i);recu+=262144;pousse();
+ const s=recu/((performance.now()-t0)/1000),reste=Math.max(0,T-recu-ap*262144);if(flux&&at>2&&reste/s*1.15<8.5)ok();if(!pret)m.textContent='Chargement '+Math.min(99,Math.round(100*(T-reste)/T))+' %'}}));
+if(!flux){p.src=URL.createObjectURL(new Blob(dispo,{type:'video/mp4'}));}
+window.__v=x;ok()}
 catch(e){m.textContent='La vidéo n’a pas pu se charger. Vérifiez le lien complet et rechargez la page.'}})();
 })();
 </script></body></html>
