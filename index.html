@@ -505,7 +505,7 @@ details p+ul{margin-top:-14px}
   <a class="fbtn" href="index.html#contact">Parler de mon projet <span>→</span></a>
   <nav class="flinks"><a href="index.html#portfolio">Portfolio</a><a href="index.html#offres">Offres</a><a href="index.html#faq">FAQ</a><a href="en/" hreflang="en">English</a></nav>
   <div class="fline"><span>© Astroploy, 2026 · Mis à jour en novembre 2026</span></div>
-  <div class="flegal"><a href="mentions-legales.html">Mentions légales</a><a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+  <div class="flegal"><a href="politique-de-confidentialite.html">Politique de confidentialité</a>
    <a class="ico" href="https://wa.me/22873273772?text=Bonjour%2C%20j%27aimerais%20parler%20de%20mon%20projet" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.6-.1 1.1z"/></svg></a>
    <a class="ico" href="https://www.instagram.com/marketing__psychologie" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="#fff" stroke="none"/></svg></a></div>
 </div></footer>
@@ -534,13 +534,13 @@ const vio=new IntersectionObserver(es=>es.forEach(e=>{const c=e.target;let v=c._
 document.querySelectorAll('.card-v[data-video]').forEach(c=>vio.observe(c));
 // hero : vidéo avec voix off intégrée (hero/hero.mp4). Muette au départ, son activé par le visiteur.
 (()=>{const f=document.getElementById('frame');if(!f)return;
-const v=document.createElement('video');v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';v.poster='hero/hero-poster.jpg';v.className='hero-vid';
+const v=document.createElement('video');v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';v.poster='videos/web/posters/clubeo.jpg';v.className='hero-vid';
 v.addEventListener('loadeddata',()=>{f.classList.add('has-video');f.appendChild(v);v.play().catch(()=>{});
  const btn=document.createElement('button');btn.className='snd';btn.type='button';btn.textContent='\uD83D\uDD0A Activer le son';f.appendChild(btn);
  btn.onclick=()=>{v.muted=!v.muted;if(!v.muted){v.currentTime=0;v.play().catch(()=>{})}btn.textContent=v.muted?'\uD83D\uDD0A Activer le son':'\uD83D\uDD07 Couper le son'};
 },{once:true});
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){v.play().catch(()=>{})}else{v.pause();if(!v.muted){v.muted=true;const b=f.querySelector('.snd');if(b)b.textContent='\uD83D\uDD0A Activer le son'}}}),{threshold:.25}).observe(f);
-v.src='hero/hero.mp4'})();
+v.src='videos/clubeo-offerte.mp4'})();
 // pricing configurator
 let pack='Complète';const tot=document.getElementById('total'),incl=document.getElementById('incl'),pf=document.getElementById('packField');
 document.querySelectorAll('#packs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#packs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');pack=b.dataset.k;incl.textContent=b.dataset.n;tot.textContent=b.dataset.p});
